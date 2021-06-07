@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true" id=main>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-card>
+          <ion-card-header>
+          <ion-card-title>Filters</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p>Launch Year</p>
+            <hr>
+            <ion-button class="mrl" (click)="fetchDataByYear(item)" *ngFor="let item of years" [color]=" launchYear == item ? 'secondary' : 'primary'"  >{{item}}</ion-button>
+            <p>Successful Launch</p>
+            <ion-button class="mrl" [color]="successfulaunch == true ? 'secondary' : 'primary'" (click)="fetchDataByLaunch(true)" >True</ion-button>
+            <ion-button class="mrl" (click)="fetchDataByLaunch(false)">False</ion-button>
+            <p>Successful Landing</p>
+            <ion-button class="mrl">True</ion-button>
+            <ion-button class="mrl">False</ion-button>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col *ngFor="let item of spaceXitem" size="3">
+            <ion-card >
+            <ion-card-header>
+              <img [src]="item.links.mission_patch">
+              <ion-card-title>
+                {{item.mission_name}}#1</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div>Mission ID:{{item.mission_id}}</div>
+              <div>Launch year:{{item.launch_year}}</div>
+              <div>Successful Launch:{{item.launch_success}}</div>
+              <div>Successful Landing:{{item.launch_landing}}</div>
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

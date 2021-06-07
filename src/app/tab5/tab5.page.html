@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tab5</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="signup">
+<ion-item>
+  <ion-label>Full Name:</ion-label>
+  <ion-input type="text" formControlName="name"></ion-input>
+  <div
+      *ngIf="signup.controls['name']?.invalid && (signup.controls['name']?.dirty || signup.controls['name']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['name']?.errors?.required">Full name is required.</div>
+
+    </div>
+</ion-item>
+
+<ion-item>
+  <ion-label>Address:</ion-label>
+  <ion-input formControlName="address"></ion-input>
+  <div
+      *ngIf="signup.controls['address']?.invalid && (signup.controls['address']?.dirty || signup.controls['address']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['address']?.errors?.required">address is required.</div>
+
+
+    </div>
+</ion-item>
+
+<ion-item>
+  <ion-label>Flat no:</ion-label>
+  <ion-input type="text" formControlName="flatno"></ion-input>
+  <div
+      *ngIf="signup.controls['flatno']?.invalid && (signup.controls['flatno']?.dirty || signup.controls['flatno']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['flatno']?.errors?.required">flatno. is required.</div>
+    </div>
+</ion-item>
+<ion-item>
+  <ion-label>Street Name:</ion-label>
+  <ion-input formControlName="streetname"></ion-input>
+  <div
+      *ngIf="signup.controls['streetname']?.invalid && (signup.controls['streetname']?.dirty || signup.controls['streetname']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['streetname']?.errors?.required">street name is required.</div>
+
+    </div>
+</ion-item>
+<ion-item>
+  <ion-label>Landmark:</ion-label>
+  <ion-input formControlName="landmark"></ion-input>
+  <div
+      *ngIf="signup.controls['landmark']?.invalid && (signup.controls['landmark']?.dirty || signup.controls['landmark']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['landmark']?.errors?.required">Full name is required.</div>
+    </div>
+</ion-item>
+<ion-item>
+  <ion-label>Pincode:</ion-label>
+  <ion-input formControlName="pincode"></ion-input>
+  <div
+      *ngIf="signup.controls['pincode']?.invalid && (signup.controls['pincode']?.dirty || signup.controls['pincode']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signup.controls['pincode']?.errors?.required">Pin is required.</div>
+      <div *ngIf="signup.controls['pincode']?.errors?.maxlength || signup.controls['pincode']?.errors?.minlength">Max length is 6. min is 5</div>
+    </div>
+
+</ion-item>
+<ion-item>
+  <ion-label>City:</ion-label>
+  <ion-input formControlName="city" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>State:</ion-label>
+  <ion-input formControlName="state"></ion-input>
+</ion-item>
+
+</form>
+</ion-content>

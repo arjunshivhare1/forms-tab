@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="signupform">
+    <h1>Form</h1>
+    {{signupform.value |json}}
+    <div>* denotes mandotory</div>
+    <p>Full Name*:  <input type="text"  formControlName='fullname' ></p>
+    <div
+      *ngIf="signupform.controls['fullname']?.invalid && (signupform.controls['fullname']?.dirty || signupform.controls['fullname']?.touched)"
+      class="alert"
+    >
+      <div *ngIf="signupform.controls['fullname']?.errors?.required">Full name is required.</div>
+      <div
+        *ngIf="signupform.controls['fullname']?.errors?.minlength ||  signupform.controls['fullname']?.errors.pattern"
+      >
+        10 digits are allowed.
+      </div>
+    </div>
+    <p>Email Address*:  <input type="email"  formControlName="email"></p>
+    <div
+    *ngIf="signupform.controls['email']?.invalid && (signupform.controls['email']?.dirty || signupform.controls['email']?.touched)"
+    class="alert"
+  >
+    <div *ngIf="signupform.controls['email']?.errors?.required">Email is required.</div>
+    <div
+      *ngIf="signupform.controls['email']?.errors?.email"
+    >
+      Please Enter a valid email
+    </div>
+  </div>
+    <p>Phone no*:  <input type="text"  formControlName="phoneNumber"></p>
+    <div
+    *ngIf="signupform.controls['phoneNumber']?.invalid && (signupform.controls['phoneNumber']?.dirty || signupform.controls['phoneNumber']?.touched)"
+    class="alert"
+  >
+    <div *ngIf="signupform.controls['phoneNumber']?.errors?.required">phoneNumber is required.</div>
+    <div
+      *ngIf="signupform.controls['phoneNumber']?.errors?.pattern || signupform.controls['phoneNumber']?.errors?.minlength || signupform.controls['phoneNumber']?.errors?.maxlength "
+    >
+      Please Enter a valid phoneNumber
+    </div>
+  </div>
+    <p>Password*:  <input type="password" formControlName="password" ></p>
+    <div
+    *ngIf="signupform.controls['password']?.invalid && (signupform.controls['password']?.dirty || signupform.controls['password']?.touched)"
+    class="alert"
+  >
+    <div *ngIf="signupform.controls['password']?.errors?.required">password is required.</div>
+    <div
+      *ngIf="signupform.controls['password']?.errors?.pattern"
+    >
+      Please Enter a valid password
+    </div>
+  </div>
+    <p>Confirm Password*:  <input type="password" formControlName="confirmPassword" ></p>
+    <div
+    *ngIf="signupform.controls['confirmPassword']?.invalid && (signupform.controls['confirmPassword']?.dirty || signupform.controls['confirmPassword']?.touched)"
+    class="alert"
+  >
+    <div *ngIf="signupform.controls['confirmPassword']?.errors?.required">confirmPassword is required.</div>
+    <div
+      *ngIf="signupform.controls['confirmPassword']?.errors?.pattern"
+    >
+      Please Enter a valid confirmPassword
+    </div>
+  </div>
+  <div
+      *ngIf="(signupform.controls['confirmPassword'].dirty || signupform.controls['confirmPassword'].touched) && signupform.value.password != signupform.value.confirmPassword"
+    >
+      confirm password does not match to password.
+    </div>
+    <p><button>Submit</button></p>
+</form>
+</ion-content>
