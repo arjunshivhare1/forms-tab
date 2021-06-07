@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ionic build"
+    "heroku-postbuild": "npm install",
+    "postinstall": "ionic build"
   },
   "private": true,
   "dependencies": {
